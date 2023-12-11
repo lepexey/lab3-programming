@@ -1,6 +1,6 @@
-import Humans.Carlson;
-import Humans.Malish;
-import Humans.Relative;
+import humans.Carlson;
+import humans.Malish;
+import humans.Relative;
 import abstraction.Color;
 import abstraction.Moves;
 import abstraction.TimeOperands;

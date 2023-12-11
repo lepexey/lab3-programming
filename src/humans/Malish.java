@@ -1,4 +1,4 @@
-package Humans;
+package humans;
 
 import abstraction.Character;
 import abstraction.Moves;
