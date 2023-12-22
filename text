@@ -10,21 +10,3 @@
 Что он сейчас делает,
 Карлсон? Может, как раз что-нибудь мастерит...
 скворечник или еще что...
-
-
-Classes:
-- Carlson
-- Malish
-- Relative
-Static class:
-- GroupComing
-Interfaces:
-- Constructable
-- Interaction
-Abstract classes:
-- Character
-- Furniture
-- PhysicalObject
-Enums:
-- TimeOperands ("потом", "уже", "ещё")
-- Moves

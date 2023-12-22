@@ -1,5 +1,7 @@
 package interfaces;
 
+import humans.Character;
+
 public interface Constructable {
-    String tinker();
+    void construct(Character person);
 }

@@ -1,14 +1,14 @@
 package humans;
 
-import abstraction.Character;
-import abstraction.Moves;
+import interfaces.Farewell;
 
-public class Carlson extends Character {
+public class Carlson extends Character implements Farewell {
     public Carlson() {
-        super("Карлсон", 34, 120, 80);
+        super("Карлсон", 36, 160, 70);
     }
 
-    public String doSomething(Moves action) {
-        return action.getAction();
+    @Override
+    public void farewell() {
+        System.out.println(getName() + " прощается");
     }
 }

@@ -1,44 +1,36 @@
-import humans.Carlson;
-import humans.Malish;
-import humans.Relative;
-import abstraction.Color;
-import abstraction.Moves;
-import abstraction.TimeOperands;
-import objects.*;
+import humans.*;
+import objects.Birdhouse;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Malish malish = new Malish();
         Carlson carlson = new Carlson();
-        Bed bed = new Bed("Кроватка", 120);
+        Malish malish = new Malish();
+        Bimbo bimbo = new Bimbo();
 
-        Relative mum = new Relative("Мама", 36, 160, 49);
-        Relative dad = new Relative("Папа", 38, 180, 88);
-        Relative betan = new Relative("Бетан", 14, 180, 88);
-        Relative bosse = new Relative("Боссе", 15, 180, 88);
+        List<Relative> relativeList = new ArrayList<>();
+        Mum mum = new Mum();
+        Dad dad = new Dad();
+        Bosse bosse = new Bosse();
+        Betan betan = new Betan();
+        Collections.addAll(relativeList, mum, dad, bosse, betan);
 
-        System.out.println(TimeOperands.LATER.getTime() + " " + carlson.getName() + " "
-                + carlson.doSomething(Moves.BECAME) + " " + carlson.doSomething(Moves.GOODBYE));
+        Birdhouse birdhouse = new Birdhouse();
 
-        System.out.print(TimeOperands.AN_HOUR_AHEAD.getTime() + " " + bed.interact(malish));
+        // start of program
+        carlson.farewell();
+        malish.lyingInBed();
+        bimbo.lyingInBed();
+        for (Relative person : relativeList) {
+            person.wishAGoodNight(malish);
+        }
+        if (!malish.checkSleeping())
+            malish.think(carlson);
 
-        Basket basket = new Basket("корзинка", 20, Color.BLACK);
-        basket.installLocation("рядом");
-        System.out.println(" а " + basket + " " + Moves.LOCATED.getAction());
-
-        System.out.println(GroupComing.comeTogether(mum, dad, betan, bosse));
-
-        Dream dream = new Dream();
-        System.out.println(dream.interact(TimeOperands.ALREADY, malish));
-
-        System.out.println("Но " + malish.getName() + " " + TimeOperands.YET.getTime() + " "
-                + malish.doSomething(Moves.SLEEP, true) + ", а " + Moves.THINK.getAction() +
-                " о " + carlson.getName() + "е");
-
-        System.out.println("Что " + carlson.getName() + " " + TimeOperands.NOW.getTime() + " "
-                + Moves.DO.getAction() + "?");
-
-        Birdhouse birdhouse = new Birdhouse("скворечник");
-        System.out.println("Может " + birdhouse.interact(Moves.TINKER, carlson) + "?");
+        birdhouse.construct(carlson);
     }
+
 }

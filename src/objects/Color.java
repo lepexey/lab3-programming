@@ -1,4 +1,4 @@
-package abstraction;
+package objects;
 
 public enum Color {
     GREEN,
