@@ -2,24 +2,38 @@ package humans;
 
 import interfaces.Construct;
 import interfaces.Farewell;
-import objects.Energy;
-import objects.PhysicalObject;
+import objects.*;
+
+import java.util.Collections;
 
 public class Carlson extends Character implements Farewell, Construct {
-    public Carlson() {
+    private Propeller propeller;
+
+    public Carlson(Propeller propeller) {
         super("Карлсон", 36, 160, 70);
+        this.propeller = propeller;
+    }
+
+    public void setPropeller(Propeller propeller) {
+        this.propeller = propeller;
+    }
+
+    public Propeller getPropeller() {
+        return propeller;
     }
 
     @Override
-    public PhysicalObject construct(PhysicalObject object) {
-        if (energy.equals(Energy.NORMAL) || energy.equals(Energy.SUPER_FRESH)) {
-            System.out.println(this.getName() + " мастерит " + object.getName());
-            energy = Energy.BORED;
-            return object;
+    public PhysicalObject construct(Materials material) {
+        if (material == Materials.WOOD) {
+            System.out.println(getName() + " мастерит скворечник");
+            return new Birdhouse();
+        } else if (material == Materials.PLASTIC) {
+            System.out.println(getName() + " делает новый винт для полета");
+            return new Propeller(propeller.getVersion() + 0.01f);
         } else {
-            return null;
+            System.out.println("Неизвестный материал: " + material);
         }
-
+        return null;
     }
 
     @Override
