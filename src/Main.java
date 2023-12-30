@@ -30,7 +30,8 @@ public class Main {
         if (!malish.checkSleeping())
             malish.think(carlson);
 
-        carlson.construct(birdhouse);
+        Birdhouse birdhouse_done = (Birdhouse) carlson.construct(birdhouse);
+        malish.sleep();
     }
 
 }

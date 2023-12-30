@@ -11,7 +11,7 @@ public abstract class Character implements FallingAsleep {
     protected int weight;
     protected final String name;
     protected boolean isSleeping;
-    protected Energy energy;
+    protected Energy energy = Energy.NORMAL;
 
     protected Character(String name, int age, int height, int weight) {
         this.name = name;
@@ -34,7 +34,7 @@ public abstract class Character implements FallingAsleep {
     }
 
     @Override
-    public void alreadySleeping() {
+    public void sleep() {
         if (energy.getEnergy() < 3) {
             isSleeping = true;
             energy = Energy.VEGETABLE;
@@ -44,10 +44,6 @@ public abstract class Character implements FallingAsleep {
 
     @Override
     public boolean checkSleeping() {
-        if (isSleeping)
-            alreadySleeping();
-        else
-            System.out.println(getName() + " не спит");
         return isSleeping;
     }
 

@@ -5,7 +5,7 @@ public interface FallingAsleep {
 
     void fallingAsleep();
 
-    void alreadySleeping();
+    void sleep();
 
     boolean checkSleeping();
 }
