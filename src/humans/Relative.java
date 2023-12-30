@@ -10,6 +10,7 @@ public abstract class Relative extends Character implements WishGoodNight {
     @Override
     public void wishAGoodNight(Character person) {
         System.out.println(name + " желает спокойной ночи персонажу: " + person.getName());
+        person.fallingAsleep();
     }
 
 }

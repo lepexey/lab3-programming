@@ -1,7 +1,7 @@
 package interfaces;
 
-import humans.Character;
+import objects.PhysicalObject;
 
 public interface Constructable {
-    void construct(Character person);
+    void construct(PhysicalObject object);
 }
